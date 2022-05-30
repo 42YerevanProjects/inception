@@ -1,0 +1,32 @@
+version: 3
+
+services:
+
+    nginx:
+        container_name: nginx
+        build: ./requirements/nginx
+        restart: always
+        ports:
+            - "443:443"
+            - "80:80"
+        networks:
+            - front
+        depends_on:
+            - wordpress
+        volumes:
+            - ./data/website:/var/www/html
+
+    wordpress:
+       container_name: wordpress
+       build: ./requirements/wordpress
+       restart: always
+       ports:
+           - "9000:9000"
+       networks:
+           - front
+           - back
+       depends_on:
+           - mariadb
+       volumes:
+           - ./data/website:/var/www/html
+
