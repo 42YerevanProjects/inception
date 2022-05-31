@@ -4,7 +4,7 @@ services:
 
     nginx:
         container_name: nginx
-        build: ./requirements/nginx
+        build: ./services/nginx
         restart: always
         ports:
             - "443:443"
@@ -18,7 +18,7 @@ services:
 
     wordpress:
        container_name: wordpress
-       build: ./requirements/wordpress
+       build: ./services/wordpress
        restart: always
        ports:
            - "9000:9000"
@@ -30,3 +30,17 @@ services:
        volumes:
            - ./data/website:/var/www/html
 
+    mariadb:
+      container_name: mariadb
+      build: ./services/mariadb
+      restart: always
+      ports:
+        - "3306:3306"
+      networks:
+        - backend
+      volumes:
+        ./data/mariadb:/var/lib/mysql
+
+  networks:
+    frontend:
+    backend:
