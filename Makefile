@@ -10,4 +10,18 @@
 #                                                                              #
 # **************************************************************************** #
 
-#Todo...
+all:
+	docker-compose -f srcs/docker-compose.yml up --build
+
+stop:
+	docker-compose -f srcs/docker-compose.yml down
+
+clean: stop
+	rm -rf srcs/data
+
+prune: clean
+	docker system prune -f
+
+re: prune all
+
+.PHONY: all stop clean prune re
