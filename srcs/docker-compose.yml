@@ -1,4 +1,4 @@
-version: 3
+version: "3.8"
 
 services:
 
@@ -37,10 +37,10 @@ services:
       ports:
         - "3306:3306"
       networks:
-        - backend
+        - back
       volumes:
-        ./data/mariadb:/var/lib/mysql
+        - ./data/mariadb:/var/lib/mysql
 
-  networks:
-    frontend:
-    backend:
+networks:
+  front:
+  back:
