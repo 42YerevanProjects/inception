@@ -40,6 +40,11 @@ services:
         - back
       volumes:
         - ./data/mariadb:/var/lib/mysql
+      environment:
+        WP_DATABASE_PASSWORD: ${WP_DATABASE_PASSWORD}
+        MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+        WP_DATABASE_NAME: ${WP_DATABASE_NAME}
+        WP_DATABASE_USER: ${WP_DATABASE_USER}
 
 networks:
   front:
