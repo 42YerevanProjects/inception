@@ -13,8 +13,6 @@
 all:
 	@docker-compose -f srcs/docker-compose.yml up --build
 
-host:
-	@ echo "127.0.0.1 raccoman.42.fr" >> /etc/hosts
 stop:
 	@docker-compose -f srcs/docker-compose.yml down
 
