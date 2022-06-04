@@ -1,7 +1,7 @@
 FROM alpine:3.13
 
 # Install nginx ssl
-RUN apk update && apk upgrade && apk install nginx openssl
+RUN apk update && apk upgrade && apk add nginx openssl
 
 # SSL config
 RUN mkdir /etc/nginx/ssl
