@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Creating environment for mysqld executable
-if [! -d "/run/mysqld"]; then
+if [ ! -d "/run/mysqld" ]; then
 	mkdir -p /run/mysqld
 	chown -R mysql:mysql /run/mysqld
 fi
@@ -16,7 +16,7 @@ if [! -d "/var/lib/mysql/mysql"]; then
 
 	# Creating a file to hold the commands to MariaDB
 	file=`config`
-	if [! -f "$file"]
+	if [! -f "$file"]; then
 		return 1
 	fi
 

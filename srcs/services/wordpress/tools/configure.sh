@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Start MariaDB
-while ! mariadb -h $MYSQL_HOST -u $WP_DATABASE_USER -p $WP_DATABASE_PASSWORD $WP_DATABASE_NAME &> /dev/null; then
+while ! mariadb -h $MYSQL_HOST -u $WP_DATABASE_USER -p $WP_DATABASE_PASSWORD $WP_DATABASE_NAME &> /dev/null; do
 	sleep 3
 done
 
