@@ -7,7 +7,7 @@ if [ ! -d "/run/mysqld" ]; then
 fi
 
 # Initializing DB and creating a table
-if [! -d "/var/lib/mysql/mysql"]; then
+if [ ! -d "/var/lib/mysql/mysql" ]; then
 
 	chown -R mysql:mysql /var/lib/mysql
 
@@ -15,8 +15,8 @@ if [! -d "/var/lib/mysql/mysql"]; then
 	mysql_install_db --basedir=/usr --datadir=/var/lib/mysql --user=mysql --rpm > /dev/null
 
 	# Creating a file to hold the commands to MariaDB
-	file=`config`
-	if [! -f "$file"]; then
+	file='config'
+	if [ ! -f "$file" ]; then
 		return 1
 	fi
 
@@ -25,12 +25,12 @@ if [! -d "/var/lib/mysql/mysql"]; then
 USE mysql;
 FLUSH PRIVILEGES;
 
-DELETE FROM mysql.user WHERE User='';
+DELETE FROM	mysql.user WHERE User='';
 DROP DATABASE test;
 DELETE FROM mysql.db WHERE Db='test';
-DELETE FROM mysql.user WHERE User='root' AND Host NOT IN('localhost'. '127.0.0.1', '::1;);
+DELETE FROM mysql.user WHERE User='root' AND Host NOT IN('localhost', '127.0.0.1', '::1');
 
-ALTER USER 'root'@'localhost' IDTENTIFIED BY '$MYSQL_ROOT_PASSWORD;;
+ALTER USER 'root'@'localhost' IDTENTIFIED BY '$MYSQL_ROOT_PASSWORD;
 
 CREATE DATABASE '$WP_DATABASE_NAME' CHARACTER SET utf8 COLLATE utf8_general_ci;
 CREATE USER '$WP_DATABASE_USER'@'%' IDENTIFIED BY '$WP_DATABASE_PASSWORD';
