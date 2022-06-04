@@ -62,8 +62,8 @@ COPY conf/index.html /tmp/index.html
 
 # install wordpress
 RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
-RUN chmod +x wp-cli.par
-RUN cp wp-cli.par /usr/bin/wp
+RUN chmod +x wp-cli.phar
+RUN cp wp-cli.phar /usr/bin/wp
 
 WORKDIR /var/www/html/wordpress
 

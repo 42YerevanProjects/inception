@@ -1,6 +1,6 @@
 FROM alpine:3.13
 
-RUN apk update && apk udgrade && apk add mariadb mariadb-client
+RUN apk update && apk upgrade && apk add mariadb mariadb-client
 
 COPY tools/configure.sh /tmp/configure.sh
 

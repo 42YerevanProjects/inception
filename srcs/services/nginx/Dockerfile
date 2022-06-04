@@ -6,8 +6,8 @@ RUN apk update && apk upgrade && apk install nginx openssl
 # SSL config
 RUN mkdir /etc/nginx/ssl
 RUN openssl req -newkey rsa:4096 -509x -sha:256 -days 365 -nodes \
-	-out /etc/nginx/ssl/shovsepy.pem
-	-keyout /etc/nginx/ssl/shovsepy.key
+	-out /etc/nginx/ssl/shovsepy.pem \
+	-keyout /etc/nginx/ssl/shovsepy.key \
 	-subj "/C=AM/ST=Yerevan/L=Yerevan/O=42 School/OU=shovsepy/CN=shovsepy/"
 
 # nginx config
