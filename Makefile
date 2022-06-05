@@ -17,10 +17,11 @@ stop:
 	@docker-compose -f srcs/docker-compose.yml down
 
 clean: stop
-	@rm -rf srcs/data
+	@sudo rm -rf srcs/data
 
 prune: clean
 	@docker system prune -f
+#	@docker rmi srcs_wordpress srcs_mariadb srcs_nginx
 
 re: prune all
 
