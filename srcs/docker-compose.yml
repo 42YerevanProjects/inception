@@ -57,6 +57,15 @@ services:
       WP_DATABASE_NAME: ${WP_DATABASE_NAME}
       WP_DATABASE_USR:  ${WP_DATABASE_USR}
       WP_DATABASE_PWD:  ${WP_DATABASE_PWD}
+
+  redis:
+    container_name: redis
+    build: services/bonus/redis
+    restart: always
+    ports:
+      - "6379:6379"
+    networks:
+      - backend
     
 networks:
   frontend:
