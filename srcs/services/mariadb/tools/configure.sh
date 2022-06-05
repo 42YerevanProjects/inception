@@ -6,26 +6,22 @@ if [ ! -d "/run/mysqld" ]; then
 	chown -R mysql:mysql /run/mysqld
 fi
 
-echo "init"
 # Initializing DB and creating a table
 if [ ! -d "/var/lib/mysql/mysql" ]; then
 
-	echo "file"
 	chown -R mysql:mysql /var/lib/mysql
 
 	# Installing db and creating mysql account
 	mysql_install_db --basedir=/usr --datadir=/var/lib/mysql --user=mysql --rpm > /dev/null
 
 	# Creating a file to hold the commands to MariaDB
-	file='config'
+	file=`mktemp`
 	if [ ! -f "$file" ]; then
 		return 1
 	fi
 
 	# Initializing the file with commands
 	cat << EOF > $file
-
-
 USE mysql;
 FLUSH PRIVILEGES;
 
