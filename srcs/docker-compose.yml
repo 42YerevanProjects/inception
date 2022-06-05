@@ -66,6 +66,20 @@ services:
       - "6379:6379"
     networks:
       - backend
+
+  ftp-server:
+    container_name: ftp_server
+    build: services/bonus/ftp-server
+    restart: always
+    ports:
+      - "21:21"
+    volumes:
+      - "./data/website:/var/www/html/"
+    networks:
+      - backend
+    environment:
+      FTP_USR: ${FTP_USR}
+      FTP_PWD: ${FTP_PWD}
     
 networks:
   frontend:
