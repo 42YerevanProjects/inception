@@ -23,7 +23,7 @@ prune: clean
 	@docker system prune -f
 
 rmi:
-	@docker rmi srcs_wordpress srcs_mariadb srcs_nginx
+	@docker rmi srcs_wordpress srcs_mariadb srcs_nginx srcs_ftp-server srcs_redis
 
 re: prune all
 
