@@ -21,8 +21,10 @@ clean: stop
 
 prune: clean
 	@docker system prune -f
-#	@docker rmi srcs_wordpress srcs_mariadb srcs_nginx
+
+rmi:
+	@docker rmi srcs_wordpress srcs_mariadb srcs_nginx
 
 re: prune all
 
-.PHONY: all stop clean prune re
+.PHONY: all stop clean prune rmi re
