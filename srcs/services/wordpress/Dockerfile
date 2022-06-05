@@ -2,7 +2,7 @@ FROM alpine:3.13
 
 RUN apk update && apk upgrade && apk add \
 	wget		\
-	tar		\
+        tar		\
 	mariadb-client	\
 	php7		\
 	php7-fpm	\
@@ -50,15 +50,16 @@ RUN apk update && apk upgrade && apk add \
 	php7-xmlwriter	\
 	php7-xsl	\
 	php7-zip	\
-	php7-zlib				
+	php7-zlib					
+		
 
 # php config
-RUN adduser -S nginx && addgroup -S nginx
+RUN adduser -S nginx &&	addgroup -S nginx
 COPY conf/php-fpm.conf /etc/php7/php-fpm.conf
 COPY conf/www.conf /etc/php7/php-fpm.d/www.conf
 
-# website page
-COPY tools/index.html /tmp/index.html
+# Static website
+COPY conf/index.html /tmp/index.html
 
 # install wordpress
 RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
