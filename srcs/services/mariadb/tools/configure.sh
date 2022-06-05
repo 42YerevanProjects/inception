@@ -17,7 +17,7 @@ if [ ! -d "/var/lib/mysql/mysql" ]; then
 		return 1
 	fi
 
-	cat << EOF > $tfile
+	cat << EOF > $file
 USE mysql;
 FLUSH PRIVILEGES;
 
