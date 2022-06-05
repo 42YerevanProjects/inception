@@ -1,63 +1,63 @@
-version: "3.8"
-
+version: '3'
 services:
 
-    nginx:
-        container_name: nginx
-        build: ./services/nginx
-        restart: always
-        ports:
-            - "443:443"
-            - "80:80"
-        networks:
-            - front
-        depends_on:
-            - wordpress
-        volumes:
-            - ./data/website:/var/www/html
+  nginx:
+    container_name: nginx
+    build: services/nginx/
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - "./data/website:/var/www/html"
+    depends_on:
+      - wordpress
+    networks:
+      - frontend
 
-    wordpress:
-       container_name: wordpress
-       build: ./services/wordpress
-       restart: always
-       ports:
-           - "9000:9000"
-       networks:
-           - front
-           - back
-       depends_on:
-           - mariadb
-       volumes:
-           - ./data/website:/var/www/html
-       environment:
-         MYSQL_HOST:        ${MYSQL_HOST}
-         WP_DATABASE_NAME:  ${WP_DATABASE_NAME}
-         WP_DATABASE_USER:  ${WP_DATABASE_USER}
-         DOMAIN_NAME:       ${DOMAIN_NAME}
-         WP_TITLE:          ${WP_TITLE}
-         WP_ADMIN_USER:     ${WP_ADMIN_USER}
-         WP_ADMIN_PASSWORD: ${WP_ADMIN_PASSWORD}
-         WP_ADMIN_EMAIL:    ${WP_ADMIN_EMAIL}
-         WP_USER:           ${WP_USER}
-         WP_PASSWORD:       ${WP_PASSWORD}
-         WP_EMAIL:          ${WP_EMAIL}
+  wordpress:
+    container_name: wordpress
+    build: services/wordpress/
+    restart: always
+    ports:
+      - "9000:9000"
+    volumes:
+      - "./data/website:/var/www/html"
+    depends_on:
+      - mariadb
+    networks:
+      - frontend
+      - backend
+    environment:
+      MYSQL_HOST:       ${MYSQL_HOST}
+      WP_DATABASE_NAME: ${WP_DATABASE_NAME}
+      WP_DATABASE_USR:  ${WP_DATABASE_USR}
+      WP_DATABASE_PWD:  ${WP_DATABASE_PWD}
+      DOMAIN_NAME:      ${DOMAIN_NAME}
+      WP_TITLE:         ${WP_TITLE}
+      WP_ADMIN_USR:     ${WP_ADMIN_USR}
+      WP_ADMIN_PWD:     ${WP_ADMIN_PWD}
+      WP_ADMIN_EMAIL:   ${WP_ADMIN_EMAIL}
+      WP_USR:           ${WP_USR}
+      WP_PWD:           ${WP_PWD}
+      WP_EMAIL:         ${WP_EMAIL}
 
-    mariadb:
-      container_name: mariadb
-      build: ./services/mariadb
-      restart: always
-      ports:
-        - "3306:3306"
-      networks:
-        - back
-      volumes:
-        - ./data/mariadb:/var/lib/mysql
-      environment:
-        WP_DATABASE_PASSWORD: ${WP_DATABASE_PASSWORD}
-        MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-        WP_DATABASE_NAME: ${WP_DATABASE_NAME}
-        WP_DATABASE_USER: ${WP_DATABASE_USER}
-
+  mariadb:
+    container_name: mariadb
+    build: services/mariadb/
+    restart: always
+    ports:
+      - "3306:3306"
+    volumes:
+      - "./data/mariadb:/var/lib/mysql"
+    networks:
+      - backend
+    environment:
+      MYSQL_ROOT_PWD:   ${MYSQL_ROOT_PWD}
+      WP_DATABASE_NAME: ${WP_DATABASE_NAME}
+      WP_DATABASE_USR:  ${WP_DATABASE_USR}
+      WP_DATABASE_PWD:  ${WP_DATABASE_PWD}
+    
 networks:
-  front:
-  back:
+  frontend:
+  backend:
