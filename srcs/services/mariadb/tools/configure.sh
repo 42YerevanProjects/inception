@@ -6,9 +6,11 @@ if [ ! -d "/run/mysqld" ]; then
 	chown -R mysql:mysql /run/mysqld
 fi
 
+echo "init"
 # Initializing DB and creating a table
 if [ ! -d "/var/lib/mysql/mysql" ]; then
 
+	echo "file"
 	chown -R mysql:mysql /var/lib/mysql
 
 	# Installing db and creating mysql account
@@ -22,19 +24,21 @@ if [ ! -d "/var/lib/mysql/mysql" ]; then
 
 	# Initializing the file with commands
 	cat << EOF > $file
+
+
 USE mysql;
 FLUSH PRIVILEGES;
 
 DELETE FROM	mysql.user WHERE User='';
 DROP DATABASE test;
 DELETE FROM mysql.db WHERE Db='test';
-DELETE FROM mysql.user WHERE User='root' AND Host NOT IN('localhost', '127.0.0.1', '::1');
+DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1');
 
-ALTER USER 'root'@'localhost' IDTENTIFIED BY '$MYSQL_ROOT_PASSWORD;
+ALTER USER 'root'@'localhost' IDENTIFIED BY '$MYSQL_ROOT_PWD';
 
-CREATE DATABASE '$WP_DATABASE_NAME' CHARACTER SET utf8 COLLATE utf8_general_ci;
-CREATE USER '$WP_DATABASE_USER'@'%' IDENTIFIED BY '$WP_DATABASE_PASSWORD';
-GRANT ALL PRIVILEGES ON $WP_DATABASE_NAME.* TO '$WP_DTAABASE_USER'@'%';
+CREATE DATABASE $WP_DATABASE_NAME CHARACTER SET utf8 COLLATE utf8_general_ci;
+CREATE USER '$WP_DATABASE_USR'@'%' IDENTIFIED by '$WP_DATABASE_PWD';
+GRANT ALL PRIVILEGES ON $WP_DATABASE_NAME.* TO '$WP_DATABASE_USR'@'%';
 
 FLUSH PRIVILEGES;
 EOF

@@ -1,11 +1,14 @@
 #!/bin/sh
 
+echo "Wordpres"
 # Start MariaDB
 while ! mariadb -h $MYSQL_HOST -u $WP_DATABASE_USER -p $WP_DATABASE_PASSWORD $WP_DATABASE_NAME &> /dev/null; do
 	sleep 3
+	echo "in loop"
 done
 
-if [! -f "/var/www/html/index.html"]; then
+
+if [ ! -f "/var/www/html/index.html" ]; then
 
 	# Getting the static website
 	mv /tmp/index.html /var/www/html/index.html
