@@ -20,7 +20,18 @@ if [ ! -f "/var/www/html/index.html" ]; then
     wp user create $WP_USR $WP_EMAIL --role=author --user_pass=$WP_PWD --allow-root
     wp theme install inspiro --activate --allow-root
 
+    # Enabling redis cache
+    sed -i "40i define( 'WP_REDIS_HOST', 'redis' );"	wp-config.php
+    sed -i "41i define( 'WP_REDIS_PORT', 6379 );"	wp-config.php
+    sed -i "42i define( 'WP_REDIS_TIMEOUT', 1 );"	wp-config.php
+    sed -i "43i define( 'WP_REDIS_READ_TIMEOUT', 1 );"	wp-config.php
+    sed -i "44i define( 'WP_REDIS_DATABASE', 0 );\n"	wp-config.php
+
+    wp plugin install redis-cache --activate --allow-root
+    wp plugin update --all --allow-root
 fi
+
+wp redis enable --allow-root
 
 echo "Wordpress started on port 9000"
 /usr/sbin/php-fpm7 -F -R
