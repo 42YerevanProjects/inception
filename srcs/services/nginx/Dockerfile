@@ -1,4 +1,18 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Dockerfile                                         :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: shovsepy <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/06/06 16:42:18 by shovsepy          #+#    #+#              #
+#    Updated: 2022/06/06 16:42:31 by shovsepy         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 FROM alpine:3.13
+
+LABEL "author"="shovsepy"
 
 # Install nginx ssl
 RUN apk update && apk upgrade && apk add nginx openssl
