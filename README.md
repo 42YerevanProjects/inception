@@ -59,7 +59,16 @@ You can run:
 
   - `make logs` to see the logs of the containers
 
-  - `make rmi` **NOTE** This command will remove **ALL CONTAINERS CREATED BY DOCKER-COMPOSE**.
+  - `make rmi` **NOTE** This command will remove **ALL IMAGES CREATED BY DOCKER-COMPOSE**.
 
   - `make re` to remove, build and run all containers in docker-compose
 
+## Resources
+
+You can find some links and books below that might be useful during the project. You can find all the books in resources folder. 
+Note that you do not have to read the books completly but you will find a lot of useful information there.
+
+Books
+
+- [Docker Basics]()
+- [Docker in practice]()
