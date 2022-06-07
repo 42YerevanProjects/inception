@@ -88,12 +88,12 @@ Videos
 
 Links
 
-- [Compose file version 3 reference](https://docs.docker.com/compose/compose-file/compose-file-v3/)
 - [WordPress Deployment with NGINX, PHP-FPM and MariaDB using Docker Compose](https://medium.com/swlh/wordpress-deployment-with-nginx-php-fpm-and-mariadb-using-docker-compose-55f59e5c1a)
+- [Compose file version 3 reference](https://docs.docker.com/compose/compose-file/compose-file-v3/)
 - [php-fpm Configuration](https://www.php.net/manual/en/install.fpm.configuration.php)
-- [TLS](https://www.internetsociety.org/deploy360/tls/basics/)
+- [Installing redis](https://unixcop.com/install-redis-server-debian-11/)
+- [How to use adminer](https://kinsta.com/blog/adminer/)
+- [Redis Eviction](https://redis.io/docs/manual/eviction/)
 - [Openssl](https://www.ssldragon.com/blog/what-is-openssl-and-how-it-works/#:~:text=With%20OpenSSL%2C%20you%20can%20apply,do%20all%20kind%20of%20verifications.)
 - [FastCGI](https://www.techtarget.com/whatis/definition/FastCGI)
-- [Installing redis](https://unixcop.com/install-redis-server-debian-11/)
-- [Redis Eviction](https://redis.io/docs/manual/eviction/)
-
+- [TLS](https://www.internetsociety.org/deploy360/tls/basics/)
