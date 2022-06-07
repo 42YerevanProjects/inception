@@ -6,7 +6,7 @@ have to use docker-compose.
 
 ## <img src="https://www.docker.com/sites/default/files/d8/2019-07/vertical-logo-monochromatic.png"  width="40px"> About the project
 
-#### Mandatory part
+### Mandatory part
 
 Each Docker image must have the same name as its corresponding service.
 Each service has to run in a dedicated container:
@@ -23,7 +23,7 @@ Here is an example diagram of the expected result:
 
 <img width="562" alt="Screen Shot 2021-12-22 at 8 38 03 PM" src="https://user-images.githubusercontent.com/54292953/147146268-a616f39a-3f16-41f8-80c9-db5494c3dfe7.png">
 
-#### Bonus part
+### Bonus part
 
 For this project, the bonus part is aimed to be simple.
 A Dockerfile must be written for each extra service. Thus, each one of them will run
@@ -38,4 +38,28 @@ is excluded!). For example, a showcase site or a site for presenting your resume
    - Set up Adminer.
    - Set up a service of your choice that you think is useful. During the defense, you
 will have to justify your choice.
+
+## ⚙️ Start Containers
+
+You can run:
+
+  - `make` in the root of the directory to build and start all container
+
+  - `make build` to build all images in docker-compose
+
+  - `make up` to start all containers in docker-compose
+
+  - `make down` to remove all containers in the docker-compose
+
+  - `make start` to start all containers in the docker-compose
+
+  - `make stop` to stop all containers in the docker-compose
+
+  - `make status` to see the running containers
+
+  - `make logs` to see the logs of the containers
+
+  - `make rmi` **NOTE** This command will remove **ALL CONTAINERS CREATED BY DOCKER-COMPOSE**.
+
+  - `make re` to remove, build and run all containers in docker-compose
 
