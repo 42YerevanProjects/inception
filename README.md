@@ -4,6 +4,8 @@ This project consists in having you set up a small infrastructure composed of di
 services under specific rules. The whole project has to be done in a virtual machine. You
 have to use docker-compose.
 
+> ⚠️ **Warning**: Don't copy/paste anything you don't understand: it's bad for you, and for the school.
+
 ## <img src="https://www.docker.com/sites/default/files/d8/2019-07/vertical-logo-monochromatic.png"  width="40px"> About the project
 
 ### Mandatory part
@@ -70,5 +72,28 @@ Note that you do not have to read the books completly but you will find a lot of
 
 Books
 
-- [Docker Basics]()
-- [Docker in practice]()
+- [Docker Basics](https://github.com/42YerevanProjects/42_Inception/tree/master/resources)
+- [Docker in Practice](https://github.com/42YerevanProjects/42_Inception/tree/master/resources)
+
+Videos
+
+- [Docker Tutorial](https://youtu.be/fqMOX6JJhGo)
+- [NGINX Linux Server](https://youtu.be/MP3Wm9dtHSQ)
+- [NGINX Config file](https://youtu.be/NEf3CFjN0Dg)
+- [Deploying Application with docker-compose](https://youtu.be/vJAfq6Ku4cI)
+- [MariaDB Basics](https://youtu.be/qxPnGlIxYC8)
+- [Redis Crush Course](https://youtu.be/jgpVdJB2sKQ)
+- [FTP explained](https://youtu.be/L9aZpg0ip70)
+- [Portainer](https://youtu.be/8q9k1qzXRk4)
+
+Links
+
+- [Compose file version 3 reference](https://docs.docker.com/compose/compose-file/compose-file-v3/)
+- [WordPress Deployment with NGINX, PHP-FPM and MariaDB using Docker Compose](https://medium.com/swlh/wordpress-deployment-with-nginx-php-fpm-and-mariadb-using-docker-compose-55f59e5c1a)
+- [php-fpm Configuration](https://www.php.net/manual/en/install.fpm.configuration.php)
+- [TLS](https://www.internetsociety.org/deploy360/tls/basics/)
+- [Openssl](https://www.ssldragon.com/blog/what-is-openssl-and-how-it-works/#:~:text=With%20OpenSSL%2C%20you%20can%20apply,do%20all%20kind%20of%20verifications.)
+- [FastCGI](https://www.techtarget.com/whatis/definition/FastCGI)
+- [Installing redis](https://unixcop.com/install-redis-server-debian-11/)
+- [Redis Eviction](https://redis.io/docs/manual/eviction/)
+
