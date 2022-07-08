@@ -118,9 +118,9 @@ volumes:
       type: none
       o: bind
       device: ./data/website
-  db:
+  mariadb:
     driver: local
-    name: db
+    name: mariadb
     driver_opts:
       type: none
       o: bind
