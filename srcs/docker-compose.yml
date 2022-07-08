@@ -109,3 +109,19 @@ services:
 networks:
   frontend:
   backend:
+
+volumes:
+  wordpress:
+    driver: local
+    name: wordpress
+    driver_opts:
+      type: none
+      o: bind
+      device: ./data/website
+  db:
+    driver: local
+    name: db
+    driver_opts:
+      type: none
+      o: bind
+      device: ./data/mariadb
