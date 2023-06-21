@@ -4,7 +4,7 @@ This project consists in having you set up a small infrastructure composed of di
 services under specific rules. The whole project has to be done in a virtual machine. You
 have to use docker-compose.
 
-> ⚠️ **Warning**: Don't copy/paste anything you don't understand: it's bad for you, and for the school.
+> ⚠ **Warning**: Don't copy/paste anything you don't understand: it's bad for you, and for the school.
 
 ## <img src="https://www.docker.com/sites/default/files/d8/2019-07/vertical-logo-monochromatic.png"  width="40px"> About the project
 
